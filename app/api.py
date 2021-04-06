@@ -1,8 +1,15 @@
 import sys
 import pyodbc
+from flask import Flask
+from flask import jsonify
+from flask import request
 
 
-# Configure database connection
+app = Flask(__main__)
+app.debug = True
+
+
+# Database connection
 server = 'tcp:localhost'
 database = 'EmployeesDB'
 username = 'sa'
@@ -14,7 +21,7 @@ cursor = cnxn.cursor()
 def create():
     print ('Inserting a new row into table')
     tsql = "INSERT INTO Employees (Name, Location) VALUES (?,?);"
-    with cursor.execute(tsql,'Jake','United States'):
+    with cursor.execute(tsql,'Kathuann Deniz','Sao Paulo'):
         print ('Successfully Inserted!')
 
 # Read
@@ -29,21 +36,17 @@ def read():
 
 # Update
 def update():
-    print ('Updating Location for Nikita')
+    print ('Updating Location for Pedro Moreira')
     tsql = "UPDATE Employees SET Location = ? WHERE Name = ?"
-    with cursor.execute(tsql,'Sao Paulo','Nikita'):
+    with cursor.execute(tsql,'Macae','Pedro Moreira'):
         print ('Successfully Updated!')
 
 # Delete
 def delete():
-    print ('Deleting user Nikita')
+    print ('Deleting user Tom')
     tsql = "DELETE FROM Employees WHERE Name = ?"
-    with cursor.execute(tsql,'Nikita'):
+    with cursor.execute(tsql,'Tom'):
         print ('Successfully Deleted!')
 
 if __name__ == '__main__':
-    # sys.argv[0] = current file
-    # sys.argv[1] = function name
-    # sys.argv[2:] = function args : (*unpacked)
-    # globals()[sys.argv[1]](*sys.argv[2:])
     globals()[sys.argv[1]]()

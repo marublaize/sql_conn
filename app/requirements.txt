@@ -1,0 +1,8 @@
+pyodbc
+click
+Flask
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
