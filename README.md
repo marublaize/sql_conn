@@ -32,4 +32,4 @@ You can connect to the SQL Server using the sqlcmd tool inside of the container 
 
 You can test the local ODBC connection using the following command on the host:
 
-```pyton3 crud.py```
+```pyton3 api.py```
