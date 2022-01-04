@@ -1,8 +1,12 @@
-FROM python:alpine
+FROM python:3.10.1-bullseye
 LABEL Thiago Teixeira Magalhães <thiago.magalhaes@gmail.com>
+
+ENV ACCEPT_EULA Y
 
 ADD requirements.txt .
 ADD api.py .
+
+RUN apt-get update && apt-get install -y unixodbc-dev
 
 RUN set -ex \
     && pip install --upgrade pip \
