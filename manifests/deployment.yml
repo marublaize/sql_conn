@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "expresscosmosdb-aff3"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "expresscosmosdb-aff3"
+  template:
+    metadata:
+      labels:
+        app: "expresscosmosdb-aff3"
+    spec:
+      containers:
+        - name: "expresscosmosdb-aff3"
+          image: "expresscosmosdbacr.azurecr.io/expresscosmosdb"
+          ports:
+          - containerPort: 8000
