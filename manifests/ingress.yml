@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "expresscosmosdb-aff3"
+    labels:
+        app: "expresscosmosdb-aff3"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: sql_conn-expresscosmosdb-aff3.3cfb6dd0417d48848ebc.centralus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "expresscosmosdb-aff3"
+                servicePort: 8000
